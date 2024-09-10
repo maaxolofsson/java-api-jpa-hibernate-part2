@@ -1,7 +1,6 @@
 package com.booleanuk.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -26,7 +25,8 @@ public class Author {
     @Column
     private boolean alive;
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
+    @JsonIgnoreProperties("author")
     private List<Book> books;
 
     public Author() {
@@ -90,5 +90,9 @@ public class Author {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 }
