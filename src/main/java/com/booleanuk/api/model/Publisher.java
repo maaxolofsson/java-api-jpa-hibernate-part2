@@ -1,6 +1,7 @@
 package com.booleanuk.api.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "publishers")
@@ -16,8 +17,15 @@ public class Publisher {
     @Column
     private String location;
 
+    @OneToMany
+    private List<Book> books;
+
     public Publisher() {
 
+    }
+
+    public Publisher(int id) {
+        this.id = id;
     }
 
     public Publisher(String name, String location) {
