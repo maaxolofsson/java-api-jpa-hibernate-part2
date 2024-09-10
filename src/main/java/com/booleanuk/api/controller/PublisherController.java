@@ -24,7 +24,7 @@ public class PublisherController {
 
     @PostMapping
     public ResponseEntity<Publisher> create(@RequestBody Publisher toAdd) {
-        return new ResponseEntity<>(this.publishers.save(toAdd), HttpStatus.OK);
+        return new ResponseEntity<>(this.publishers.save(toAdd), HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
@@ -56,7 +56,7 @@ public class PublisherController {
         publisherToUpdate.setName(newData.getName());
         publisherToUpdate.setLocation(newData.getLocation());
 
-        return new ResponseEntity<>(this.publishers.save(publisherToUpdate), HttpStatus.OK);
+        return new ResponseEntity<>(this.publishers.save(publisherToUpdate), HttpStatus.CREATED);
     }
 
 
