@@ -58,7 +58,7 @@ public class AuthorController {
         authorToUpdate.setEmail(newData.getEmail());
         authorToUpdate.setAlive(newData.isAlive());
 
-        return new ResponseEntity<>(authorToUpdate, HttpStatus.OK);
+        return new ResponseEntity<>(this.authors.save(authorToUpdate), HttpStatus.OK);
     }
 
 
